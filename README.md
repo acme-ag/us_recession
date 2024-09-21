@@ -92,11 +92,11 @@ Preliminary results indicate that the Random Forest and XGBoost models perform w
 1.	[Data collection and preprocessing](data_combination.ipynb):
 	- Compile historical data from reliable economic sources.
 	- Perform feature engineering and clean the dataset to ensure consistency across time periods.
-2.	Time-Series forecasting:
+2.	[EDA, time-series forecasting](eda.ipynd):
 	- Apply the VAR model to forecast key economic indicators for the next 10 months (April 2024 to Jan 2025).
 	- Measure its performance against ARIMA model (on a certain indicators) 
 	- Validate the forecasted data against real-world observations.
-3.	Machine learning modeling:
+3.	[Machine learning modeling](modelling.ipynb):
 	- Train logistic regression, random forest, XGBoost, and SVM models using the forecasted data.
 	- Evaluate models based on precision, recall, F1-score, and accuracy.
 	- Utilize cross-validation and AUC-ROC metrics to ensure robustness.
