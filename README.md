@@ -107,6 +107,8 @@ Preliminary results indicate that the Random Forest and XGBoost models perform w
 	- Use ensemble methods to combine model outputs and generate a final prediction for the probability of a U.S. recession.
 	- Assess the model’s performance in predicting recession probabilities over the next 10 months.
 
+![ETL workflow](schema.png)
+
 ## Conclusion
 
 This project presents a comprehensive approach to measuring and predicting U.S. recession probabilities using advanced machine learning techniques and a diverse set of economic indicators. Throughout the analysis, several models were tested and evaluated, with **XGBoost** and the **Ensemble model** standing out as the most effective in predicting the probability of a recession.
