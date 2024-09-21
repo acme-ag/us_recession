@@ -89,7 +89,7 @@ Preliminary results indicate that the Random Forest and XGBoost models perform w
 
 ## Roadmap
 
-1.	Data collection and preprocessing:
+1.	[Data collection and preprocessing](data_combination.ipynb):
 	- Compile historical data from reliable economic sources.
 	- Perform feature engineering and clean the dataset to ensure consistency across time periods.
 2.	Time-Series forecasting:
