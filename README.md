@@ -117,11 +117,12 @@ Here is a summary of the performance and insights based on the evaluation metric
 
 **Logistic Regression (LR)**
 
-Precision (Class 1): 0.18
-Recall (Class 1): 0.80
-Accuracy: 0.62
-ROC AUC Score: 0.7660
-Confusion Matrix:
+- Precision (Class 1): 0.18
+- Recall (Class 1): 0.80
+- Accuracy: 0.62
+- ROC AUC Score: 0.7660
+- Confusion Matrix:
+
 ![Logistic regression](LR.jpg)
 
 The recession probability curve for Logistic Regression is relatively conservative, indicating lower peaks with a maximum probability of 0.69, suggesting that this model is more prone to predicting “no recession” even in risky situations.
