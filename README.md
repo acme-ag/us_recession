@@ -182,7 +182,7 @@ The ensemble model shows a smoother curve with a maximum recession probability o
 Conclusion: The ensemble model balances the strengths of all other models, providing relatively high recall without excessively compromising precision. It is highly effective at capturing recession periods while controlling for false positives, making it an excellent choice for recession prediction.
 
 ------------------------------
-What's interesting: all models capture the same period as the riskiest: July-August. And this aligns well with the talks and news, sentiments that were there in media and social networks -- I think the peak of expectation or fear of a recession being pronounced was just in these months. Another peak is suggested by XGB and "supported" by RF -- October.
+What's interesting: almost all models (except for XGB) capture the same period as the riskiest: July-August. And this aligns well with the talks and news, sentiments that were there in media and social networks -- I think the peak of expectation or fear of a recession being pronounced was just in these months. Another peak is suggested by XGB and "supported" by RF -- October.
 
 - Ok, so what's the **best model**? 
 - Well, based on both the metrics and the recession probability forecast plots, XGBoost certainly stands out as the best model. It strikes the optimal balance b/w precision and recall. It has relatively low false positive rate while successfully capturing the recession periods. ROC AUC score of 0.8773 also indicates strong discriminatory power.
