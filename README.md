@@ -111,22 +111,18 @@ Preliminary results indicate that the Random Forest and XGBoost models perform w
 
 ## Conclusion
 
-This project presents a comprehensive approach to measuring and predicting U.S. recession probabilities using advanced machine learning techniques and a diverse set of economic indicators. Throughout the analysis, several models were tested and evaluated, with **XGBoost** and the **Ensemble model** standing out as the most effective in predicting the probability of a recession.
+This project presents a comprehensive approach to measuring and predicting U.S. recession probabilities using advanced machine learning techniques and a diverse set of economic indicators. The focus was on handling imbalanced data, where recession periods are rarer than non-recession periods, and ensuring that the models are effective at not missing recessions, as predicting a recession incorrectly is less costly than failing to predict an actual recession.
 
-After thorough experimentation, XGBoost emerged as one of the top-performing models, achieving a cross-validation AUC score of **0.912**. It demonstrated strong performance in distinguishing between recession and non-recession periods, achieving an overall accuracy of **85%**. Notably, XGBoost achieved a recall of **55%** for recession periods, which indicates that it was able to correctly capture more than half of the actual recession events, a significant improvement over the baseline Logistic Regression model.
+Here is a summary of the performance and insights based on the evaluation metrics and recession probability forecasts for each model and overall conclusion.
 
-The **Logistic regrssion** model, while offering a solid baseline, struggled to accurately capture recession periods. With an AUC score of 0.615 and an accuracy of 57%, it highlighted the need for more complex models to improve predictive accuracy, especially for rare events like recessions.
+**Logistic Regression (LR)**
 
-The **Random forest** classifier also performed well, particularly in terms of precision for predicting non-recession periods, achieving an AUC score of 0.812. However, it had limitations in recalling recession events, capturing only 25% of actual recession periods. This trade-off between precision and recall made Random Forest more suitable for predicting stable (non-recession) periods rather than rare recessions.
+Precision (Class 1): 0.18
+Recall (Class 1): 0.80
+Accuracy: 0.62
+ROC AUC Score: 0.7660
+Confusion Matrix:
+(LR.jpg)
 
-The **SVM** model provided similar challenges, with an AUC score of 0.600 and a recall of 65% for recessions, but precision suffered significantly, making it less reliable overall.
-
-### Ensemble model:
-
-The **Ensemble method**, which combined the strengths of multiple models (Logistic regression, SVM, Random forest, and XGBoost) using a soft voting classifier, improved performance across several metrics. The ensemble approach achieved an AUC score of **0.738** and balanced both precision and recall for recession periods, capturing **55%** of recessions. Although it did not outperform XGBoost in all areas, it provided a more stable prediction by leveraging the strengths of individual models.
-
-These results suggest that, based on the indicators used, **XGBoost** provides the most reliable predictions for U.S. recession probabilities, offering both high accuracy and reasonable recall for recession periods. However, the Ensemble model offers a more balanced approach and can be considered as an alternative when greater stability and consistency across predictions are needed.
-
-The forecasted economic data for april to september 2024 aligned closely with real-world trends, reinforcing the reliability of the models. The ability to predict recession probabilities with such precision can provide valuable insights for policymakers, economists, and financial analysts, offering them the tools to anticipate and prepare for economic downturns.
-
-While the models performed robustly, there are areas for further improvement. Future work could focus on incorporating additional macroeconomic features, refining feature engineering techniques, or adjusting decision thresholds to further enhance recall for recession periods. These improvements could lead to even more accurate and actionable recession forecasts, aiding decision-making in economic policy and financial markets.
+The recession probability curve for Logistic Regression is relatively conservative, indicating lower peaks with a maximum probability of 0.69, suggesting that this model is more prone to predicting “no recession” even in risky situations.
+Conclusion: Logistic regression is highly cautious in predicting recessions and tends to favor false positives. However, it achieved high recall for the minority class (recession), making it effective at identifying recession periods, even at the cost of predicting many false positives.
