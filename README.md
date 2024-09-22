@@ -1,5 +1,7 @@
 # Predicting US recession probabilities using Machine learning models
 
+![img](McKelvey-PMES-Combined-Recession-Indicator-2024-08.png)
+
 ## Overview
 
 This project aims to explore and predict the likelihood of a recession in the United States by leveraging a comprehensive dataset of key economic indicators. 
