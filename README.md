@@ -117,13 +117,78 @@ Here is a summary of the performance and insights based on the evaluation metric
 
 **Logistic Regression (LR)**
 
-- Precision (Class 1): 0.18
-- Recall (Class 1): 0.80
+- Precision (class 1): 0.18
+- Recall (class 1): 0.80
 - Accuracy: 0.62
 - ROC AUC Score: 0.7660
 - Confusion Matrix:
 
 ![Logistic regression](LR.jpg)
 
-The recession probability curve for Logistic Regression is relatively conservative, indicating lower peaks with a maximum probability of 0.69, suggesting that this model is more prone to predicting “no recession” even in risky situations.
-Conclusion: Logistic regression is highly cautious in predicting recessions and tends to favor false positives. However, it achieved high recall for the minority class (recession), making it effective at identifying recession periods, even at the cost of predicting many false positives.
+The recession probability curve for Logistic Regression is relatively conservative, indicating lower peaks with a maximum probability of 0.69, suggesting that this model is more prone to predicting “no recession” evan in risky situations.
+Conclusion: Logistic regression is highly cautious in predicting recessions and tends to favor false positives. But it achieved high recall for recession, making it effective at identifying recession periods, even at the cost of predicting many false positives.
+
+
+**Random Forest (RF)**
+
+- Precision (class 1): 0.36
+- Recall (class 1): 0.65
+- Accuracy: 0.86
+- ROC AUC Score: 0.8086
+- Confusion Matrix:
+
+![Random forest](RF.jpg)
+
+The predixtion plot shows moderately sharp changes in recession probability, with a maximum of 0.49. The model is a bit more balanced, but it still leans towards over-predicting the non-recession periods.
+Conclusion: Random forest provides a better balance between precision and recall compared to Logistic regression, with fewer FPs. However, it's still struggling to fully capture the minority class, missing a few class 1 periods.
+
+**XGBoost (XGB)**
+
+- Precision (class 1): 0.48
+- Recall (class 1): 0.70
+- Accuracy: 0.90
+- ROC AUC Score: 0.8773
+- Confusion Matrix:
+
+![XGB](XGB.jpg)
+
+The XGBoost model forecast shows sharper peaks, with a maximum probability of 0.87, indicating that this model identifies potential recessions with relatively high confidence. It also does a better job of distinguishing between recession and non-recession periods.
+Conclusion: XGBoost is one of the top-performing models. Its higher ROC AUC score and balanced performance on precision and recall make it effective for this problem. XGBoost captures both the recession periods and non-recession periods well, with fewer false positives and a higher proportion of true positives.
+
+**Support Vector Machine (SVM)**
+
+- Precision (class 1): 0.21
+- Recall (class 1): 0.80
+- Accuracy: 0.69
+- ROC AUC Score: 0.7655
+- Confusion Matrix:
+
+![SVM](SVM.jpg)
+
+The SVM model forecast demonstrates a sharp spike in recession probability with a max of 0.79, which suggests overconfidence in certain periods. Despite this, the model has some false positives, especially in non-recession periods.
+Conclusion: SVM tends to overestimate recession probabilities, leading to more false positives. But its recall for recession periods is high, which makes it less likely to miss a recession. It is useful if the priority is to ensure all potential recessions are captured, even at the expense of some false positives.
+
+**Ensemble voting algorithm**
+
+- Precision (class 1): 0.35
+- Recall (class 1): 0.80
+- Accuracy: 0.84
+- ROC AUC Score: 0.8350
+- Confusion Matrix:
+
+![Ensemble Voting Classifier](Ens.jpg)
+
+The ensemble model shows a smoother curve with a maximum recession probability of 0.59. It balances the risk of false positives with maintaining a reasonable true positive rate, capturing recession signals better than Logistic Regression and SVM.
+Conclusion: The ensemble model balances the strengths of all other models, providing relatively high recall without excessively compromising precision. It is highly effective at capturing recession periods while controlling for false positives, making it an excellent choice for recession prediction.
+
+------------------------------
+What's interesting: all models capture the same period as the riskiest: July-August. And this aligns well with the talks and news, sentiments that were there in media and social networks -- I think the peak of expectation or fear of a recession being pronounced was just in these months. Another peak is suggested by XGB and "supported" by RF -- October.
+
+- Ok, so what's the **best model**? 
+- Well, based on both the metrics and the recession probability forecast plots, XGBoost certainly stands out as the best model. It strikes the optimal balance b/w precision and recall. It has relatively low false positive rate while successfully capturing the recession periods. ROC AUC score of 0.8773 also indicates strong discriminatory power.
+
+- Is Ensemble model a universal soluiton?
+- The Ensemble voting classifier indeed provides a robust alternative combining the advantages of each individual model. With high recall and reasonable precision, this model is also a strong candidate if the priority is to maximize recall and reduce the risk of missing a recession.
+
+Given that missing a recession is more pricy than predicting a false positive, models like XGBoost and Ensemble are top choice. Both models ensure that recession periods are captured effectively while keeping FPs to a manageable level. 
+What else can be done here: differentiatetd lags. There's are so-called leading and lagging indicators, and mixed too, so they can be treated differently. But this would overcomplicate model, so there would be risk of overfitting. Another improvement coulb be to replace SMOTE with SMOTE-Tomek, maybe it could handle the imbalance problem better. The thirs point of improvement can be to extend the dataset with some other indicators, like AAA corporate bonds, PMI, Manufacturing orders and Consumer and Business sentiments. But still the major problem is the nature of the recessions -- they all are different, they have different origines, and rarity of the events (class 1).
