@@ -122,7 +122,7 @@ Recall (Class 1): 0.80
 Accuracy: 0.62
 ROC AUC Score: 0.7660
 Confusion Matrix:
-!(LR.jpg)
+![Logistic regression](LR.jpg)
 
 The recession probability curve for Logistic Regression is relatively conservative, indicating lower peaks with a maximum probability of 0.69, suggesting that this model is more prone to predicting “no recession” even in risky situations.
 Conclusion: Logistic regression is highly cautious in predicting recessions and tends to favor false positives. However, it achieved high recall for the minority class (recession), making it effective at identifying recession periods, even at the cost of predicting many false positives.
